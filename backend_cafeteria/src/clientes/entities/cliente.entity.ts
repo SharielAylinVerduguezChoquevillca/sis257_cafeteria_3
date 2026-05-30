@@ -7,7 +7,7 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-//import { Venta } from '../../ventas/entities/venta.entity';
+import { Venta } from '../../ventas/entities/venta.entity';
 
 @Entity('clientes')
 export class Cliente {
@@ -23,8 +23,8 @@ export class Cliente {
   @Column({ type: 'varchar', length: 20, nullable: true })
   telefono: string;
 
-  //@OneToMany(() => Venta, (venta) => venta.cliente)
-  //ventas: Venta[];
+  @OneToMany(() => Venta, (venta) => venta.cliente)
+  ventas: Venta[];
 
   @CreateDateColumn({ name: 'fecha_creacion' })
   fechaCreacion: Date;
