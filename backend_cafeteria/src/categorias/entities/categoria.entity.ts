@@ -7,7 +7,7 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-//import { Producto } from '../../productos/entities/producto.entity';
+import { Producto } from '../../productos/entities/producto.entity';
 
 @Entity('categorias')
 export class Categoria {
@@ -20,8 +20,8 @@ export class Categoria {
   @Column({ type: 'varchar', length: 255})
   descripcion: string;
 
-  //@OneToMany(() => Producto, (producto) => producto.categoria)
-  //productos: Producto[];
+  @OneToMany(() => Producto, (producto) => producto.categoria)
+  productos: Producto[];
 
   @CreateDateColumn({ name: 'fecha_creacion' })
   fechaCreacion: Date;
