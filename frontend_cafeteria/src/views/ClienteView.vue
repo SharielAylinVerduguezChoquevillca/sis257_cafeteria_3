@@ -28,18 +28,28 @@ function handleGuardar() {
 </script>
 
 <template>
-  <div>
-    <div class="flex justify-content-between align-items-center mt-3">
-      <h2>Clientes</h2>
-      <button class="p-button p-button-primary" @click="handleCreate">Nuevo Cliente</button>
+  <div class="ftco-section">
+    <div class="container">
+      <div class="heading-section text-center mb-5">
+        <span class="subheading">Gestión</span>
+        <h2>Clientes</h2>
+      </div>
+
+      <div class="d-flex justify-content-end mb-4">
+        <button class="btn btn-primary px-4 py-2" @click="handleCreate">
+          <span>+ Nuevo Cliente</span>
+        </button>
+      </div>
+
+      <ClienteList ref="clienteListRef" @edit="handleEdit" />
+
+      <ClienteSave
+        :mostrar="mostrarDialog"
+        :cliente="clienteEdit"
+        :modoEdicion="!!clienteEdit"
+        @guardar="handleGuardar"
+        @close="handleCloseDialog"
+      />
     </div>
-    <ClienteList ref="clienteListRef" @edit="handleEdit" />
-    <ClienteSave
-      :mostrar="mostrarDialog"
-      :cliente="clienteEdit"
-      :modoEdicion="!!clienteEdit"
-      @guardar="handleGuardar"
-      @close="handleCloseDialog"
-    />
   </div>
 </template>

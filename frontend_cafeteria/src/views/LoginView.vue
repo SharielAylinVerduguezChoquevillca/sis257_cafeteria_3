@@ -22,6 +22,7 @@ async function handleLogin() {
 </script>
 
 <template>
+<<<<<<< Updated upstream
   <div style="min-height: 100vh; background-image: url('/src/assets/images/bg_1.jpg'); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center;">
     <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.6);"></div>
     <div style="position: relative; z-index: 10; width: 100%; max-width: 450px; padding: 20px;">
@@ -72,6 +73,194 @@ async function handleLogin() {
         </button>
 
       </div>
+=======
+  <div class="login-container">
+    <div class="login-box">
+      <div class="login-header">
+        <span class="subheading">Bienvenido a</span>
+        <h2>El Buen Gusto</h2>
+        <div class="coffee-icon">☕</div>
+      </div>
+
+      <div class="gold-divider"></div>
+
+      <div class="login-body">
+        <h4 class="login-title">Iniciar Sesión</h4>
+
+        <div class="form-group mb-4">
+          <label class="field-label">Email</label>
+          <input
+            v-model="email"
+            type="email"
+            class="form-control"
+            placeholder="correo@ejemplo.com"
+          />
+        </div>
+
+        <div class="form-group mb-4">
+          <label class="field-label">Contraseña</label>
+          <input v-model="password" type="password" class="form-control" placeholder="••••••" />
+        </div>
+
+        <div v-if="error" class="error-msg mb-4">
+          {{ error }}
+        </div>
+
+        <button class="btn-login" @click="handleLogin">Ingresar</button>
+      </div>
+>>>>>>> Stashed changes
     </div>
   </div>
 </template>
+
+<style scoped>
+.login-container {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: linear-gradient(135deg, #0a0807 0%, #1a1512 100%);
+}
+
+.login-box {
+  background: #1a1512;
+  border: 1px solid rgba(196, 155, 99, 0.3);
+  width: 100%;
+  max-width: 420px;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+.login-header {
+  padding: 40px 30px 20px;
+  text-align: center;
+  position: relative;
+}
+
+.subheading {
+  font-family: 'Great Vibes', cursive;
+  font-size: 28px;
+  color: #c49b63;
+  display: block;
+  line-height: 1;
+  margin-bottom: 5px;
+}
+
+.login-header h2 {
+  font-family: 'Josefin Sans', Arial, sans-serif;
+  font-size: 28px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #fff;
+  margin: 10px 0 5px;
+  font-weight: 700;
+}
+
+.coffee-icon {
+  font-size: 40px;
+  margin-top: 10px;
+  animation: steam 2s ease-in-out infinite;
+}
+
+@keyframes steam {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-5px);
+    opacity: 0.8;
+  }
+}
+
+.gold-divider {
+  height: 2px;
+  background: linear-gradient(to right, transparent, #c49b63, transparent);
+  margin: 0 30px;
+}
+
+.login-body {
+  padding: 30px;
+}
+
+.login-title {
+  font-family: 'Josefin Sans', Arial, sans-serif;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #c49b63;
+  margin: 0 0 25px 0;
+  font-weight: 600;
+  text-align: center;
+}
+
+.field-label {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 8px;
+  font-family: 'Work Sans', sans-serif;
+}
+
+.form-control {
+  border: transparent !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
+  height: 48px !important;
+  padding-left: 0;
+  background: transparent !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-size: 14px;
+  border-radius: 0;
+  box-shadow: none !important;
+  transition: border-color 0.3s;
+  width: 100%;
+}
+
+.form-control::placeholder {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.form-control:focus,
+.form-control:active {
+  border-bottom-color: #c49b63 !important;
+  outline: none;
+}
+
+.error-msg {
+  background: rgba(220, 53, 69, 0.12);
+  border-left: 3px solid #dc3545;
+  color: #f5a0a8;
+  font-size: 13px;
+  padding: 10px 12px;
+  text-align: center;
+}
+
+.btn-login {
+  width: 100%;
+  background: #c49b63;
+  border: 1px solid #c49b63;
+  color: #000;
+  font-family: 'Josefin Sans', Arial, sans-serif;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  border-radius: 0;
+  height: 48px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn-login:hover {
+  background: transparent;
+  color: #c49b63;
+}
+
+.btn-login:active {
+  transform: scale(0.98);
+}
+</style>
